@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Ethereum Prediction Calculator</title>
+  </head>
+  <body class="bg-dark">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <form id="master-form">
+
+            <div>
+              <h1 class="heading-display-5 pb-3" style="color:rgb(66, 90, 195)">eth exit strategy calculator</h1>
+            </div>
+
+            <div id="amount-eth-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">amount eth</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">eth</span>
+                  <input type="number" class="form-control" id="amount" placeholder="amount of eth you own">
+                </div>
+              </div>
+            </div>
+
+            <div id="prediction-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">prediction</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_price" placeholder="peak eth price">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="max_eth_to_btc" placeholder="max eth-btc ratio (10% default)" value="10">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="btc_drop" placeholder="percent btc drop during put (40% default)" value="40">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point1-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 1</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell1" placeholder="sell point" value="8000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell1" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy1" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point2-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 2</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell2" placeholder="sell point" value="9000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell2" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy2" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point3-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 3</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell3" placeholder="sell point" value="10000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell3" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy3" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point4-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 4</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell4" placeholder="sell point" value="11000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell4" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy4" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point5-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 5</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell5" placeholder="sell point" value="12000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell5" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy5" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point6-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 6</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell6" placeholder="sell point" value="13000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell6" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy6" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point7-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 7</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell7" placeholder="sell point" value="14000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell7" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy7" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point8-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 8</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell8" placeholder="sell point" value="15000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell8" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy8" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point9-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 9</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell9" placeholder="sell point" value="17500">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell9" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy9" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+
+            <div id="sell-point10-card" class="card card-body mt-5">
+              <h3 class="heading-display-5 pb-3">sell point 10</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="number" class="form-control" id="eth_sell10" placeholder="sell point" value="20000">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_eth_sell10" placeholder="percent of total to sell at this sell point">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">%</span>
+                  <input type="number" class="form-control" id="percent_put_buy10" placeholder="percent profit from this sell point into puts">
+                </div>
+              </div>
+            </div>
+    
+
+            <div id="totals" class="card card-body mt-5">
+              <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-dark btn-block" action="#">
+              </div>
+              <h3 class="heading-display-5 pb-3">Totals</h3>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">pre-peak moners</span>
+                  <input type="number" class="form-control" id="pre-peak-money" disabled>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">post-peak moners</span>
+                  <input type="number" class="form-control" id="post-peak-money" disabled>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$mara put moners</span>
+                  <input type="number" class="form-control" id="mara-put-money" disabled>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">total moners!</span>
+                  <input type="number" class="form-control" id="total-moners" disabled>
+                </div>
+              </div>
+            </div>
+
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="prediction.js"></script>
+  </body>
+</html>
